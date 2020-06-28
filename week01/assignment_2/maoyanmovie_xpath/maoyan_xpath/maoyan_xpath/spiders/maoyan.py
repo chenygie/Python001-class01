@@ -9,8 +9,8 @@ class MaoyanSpider(scrapy.Spider):
     start_urls = ['http://maoyan.com/']
 
     def start_requests(self):
-        # url = 'https://maoyan.com/films?showType=3'
-        url = 'file:///Users/chen/OneDrive/geektime/demo/1.html'
+        url = 'https://maoyan.com/films?showType=3'
+        # url = 'file:///Users/chen/OneDrive/geektime/demo/1.html'
         yield scrapy.Request(url,callback=self.parse,dont_filter=False)
 
     def parse(self, response):

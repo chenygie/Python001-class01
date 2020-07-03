@@ -20,7 +20,7 @@ NEWSPIDER_MODULE = 'maoyan_xpath.spiders'
 
 from fake_useragent import UserAgent
 ua = UserAgent()
-USER_AGENT = ua.google
+USER_AGENT = ua.random
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False

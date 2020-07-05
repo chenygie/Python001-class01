@@ -29,7 +29,7 @@ mysqldump -u root -p maoyan movies>maoyan_movies.sql
 ```
 # tips 4: chrome webdriver版本选择
 Current Releases
-If you are using Chrome version 84, please download ChromeDriver 84.0.4147.30
-If you are using Chrome version 83, please download ChromeDriver 83.0.4103.39
-If you are using Chrome version 81, please download ChromeDriver 81.0.4044.138
-For older version of Chrome, please see below for the version of ChromeDriver that supports it.
+* If you are using Chrome version 84, please download ChromeDriver 84.0.4147.30
+* If you are using Chrome version 83, please download ChromeDriver 83.0.4103.39
+* If you are using Chrome version 81, please download ChromeDriver 81.0.4044.138
+* For older version of Chrome, please see below for the version of ChromeDriver that supports it.

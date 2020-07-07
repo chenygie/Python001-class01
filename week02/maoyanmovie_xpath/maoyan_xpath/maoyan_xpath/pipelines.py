@@ -46,7 +46,7 @@ class MaoyanXpathPipeline:
 
             with connection.cursor() as cursor:
                 # Read a single record
-                sql = "SELECT * FROM `movies`"
+                sql = "SELECT * FROM `movies` limit 10"
                 cursor.execute(sql)
                 result = cursor.fetchone()
                 print(result)

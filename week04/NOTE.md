@@ -16,3 +16,8 @@
 df2.groupby('type').aggregate( {'type':'count' , 'Feb':'sum' })
 ```
 
+pandas中map() 和apply() 的区别，对于初学者很容易产生迷惑
+
+map()：针对pandas 中的DataFrame中列进行迭代操作，
+
+apply(): 针对pandas中DataFrame中行进行迭代操作

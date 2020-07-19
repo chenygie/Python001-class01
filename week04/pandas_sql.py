@@ -32,7 +32,7 @@ def show_data(iris_data,order_data,order_data_2):
     print('5. SELECT * FROM data WHERE id<1000 AND age>30;')
     print(order_data[(order_data['id']>1000) & (order_data['age']>30)])
     print("6. SELECT id,COUNT(DISTINCT order_id) FROM table1 GROUP BY id;")
-    print(order_data.groupby('id').agg({'order_id':'count'}))
+    print(order_data.groupby('id').agg({'order_id':'nunique'}))
     print("7. SELECT * FROM table1 t1 INNER JOIN table2 t2 ON t1.id = t2.id;")
     print(pd.merge(order_data,order_data_2,on='id',how = 'inner'))
     print("8. SELECT * FROM table1 UNION SELECT * FROM table2;")

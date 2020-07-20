@@ -1,4 +1,6 @@
 import matplotlib.pyplot as plt
+from pyecharts.charts import Bar
+from pyecharts import options as opts
 import pandas as pd
 import numpy as np
 import pymysql
@@ -33,6 +35,7 @@ def normalize_data():
     cursor.execute("select `city`, `salary` from `positions`")
     df = pd.DataFrame(cursor.fetchall())
     for i in range(0,len(df)):
+        # print(df.iloc[i]['city'],df.iloc[i]['salary'])
         city = df.iloc[i]['city']
         ind = _CITIES_MAP[city]
         avg = parse_salary(df.iloc[i]['salary'])
@@ -43,7 +46,7 @@ def normalize_data():
         else:
             o_240k[ind] += 1
 
-def draw():
+def draw_matplotlib():
   x = np.arange(len(_CITIES))
   bar_width = 0.3
 
@@ -64,10 +67,20 @@ def draw():
   plt.legend()
   plt.show()
 
-
+def draw_pyecharts():
+  bar = (
+      Bar()#初始化
+      .add_xaxis(["北京","上海","广州","深圳"])
+      .add_yaxis('小于12万/年', u_120k)
+      .add_yaxis('12万到24万/年',b_120k_and_240k)
+      .add_yaxis('大于24万/年',o_240k)
+      .set_global_opts(title_opts=opts.TitleOpts(title="北上广深python招聘薪资"))#设置表格标题
+  )
+  bar.render("北上广深python招聘薪资.html")
 def main():
   normalize_data()
-  draw()
+  draw_matplotlib()
+  draw_pyecharts()
 
 
 if __name__ == '__main__':

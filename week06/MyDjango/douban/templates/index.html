@@ -1,0 +1,13 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>豆瓣电影评论</title>
+</head>
+<body>
+<h1>使用 Django 展示豆瓣电影中某个电影的短评和星级等相关信息：</h1>
+{% for _ in comments %}
+    <div>电影评论: {{ _.comment }} <br>
+         电影星级: {{ _.star_level }}  <br>
+    </div>
+{% endfor %}
+</body>

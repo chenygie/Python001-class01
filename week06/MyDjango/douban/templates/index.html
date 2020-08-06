@@ -5,9 +5,13 @@
 </head>
 <body>
 <h1>使用 Django 展示豆瓣电影中某个电影的短评和星级等相关信息：</h1>
-{% for _ in comments %}
-    <div>电影评论: {{ _.comment }} <br>
-         电影星级: {{ _.star_level }}  <br>
+<h2>#活着 电影短评</h2>
+{% for i in comments %}
+    <div>
+        用户: {{ i.user }} <br>
+        电影评论: {{ i.content }} <br>
+        电影星级: {{ i.star }}  <br>
+        <HR align=center  color=#987cb9 SIZE=2>
     </div>
 {% endfor %}
 </body>

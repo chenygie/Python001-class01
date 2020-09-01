@@ -18,11 +18,12 @@ collections.deque
 '''
 
 # 作业一
-# 容器序列：list tuple collections.deque dict
+# 容器序列：list tuple collections.deque 
 # 扁平序列：str 
-# 可变序列: list dict collections.deque
+# 可变序列: list  collections.deque
 # 不可变序列:tuple str
-
+# python 2.7 下，dict.values() 可以正常序列化   json.dumps(kv.values())
+# python3.7 下，dict.values() 不可以序列化      json.dumps(list(kv.values()))
 # 作业二
 def homework_map(func, iter_list):
     for i in iter_list:
@@ -30,8 +31,9 @@ def homework_map(func, iter_list):
 
 #作业三
 import time
-
+from functools import wraps
 def set_fun(func):
+    @wraps(func)
     def call_fun(*args, **kwargs):
         start_time = time.time()
         func(*args, **kwargs)
@@ -45,7 +47,7 @@ def test(*args, **kwargs):
     time.sleep(3)
 
 if __name__ == '__main__':
-    print('test')
+    print('test.__name__:',test.__name__)
     test()
     map_generator = homework_map(lambda x:x**2,[1,2,3,4])
     print("home work user defined map list value:",list(map_generator))
